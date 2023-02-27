@@ -1,13 +1,33 @@
-<?php
-for ($i = 10; $i >= 1; $i--) {
-  echo "| ";
-  for ($j = 1; $j <= 10; $j++) {
-    $number = $i + ($j - 1) * 10;
-    if ($number >= 1) {
-      echo str_pad($number, 2, "0", STR_PAD_LEFT) . " | ";
-    } else {
-      echo "   | ";
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2c</title>
+
+  <style>
+    .design {
+      border-style: 1 px solid;
+      border-width: 1px;
+      background-color: hotpink;
     }
-  }
-  echo "<br>";
-}
+  </style>
+
+
+</head>
+
+<body>
+  <table cellpadding="20" cellspacing="3">
+    <?php for ($l = 15; $l >= 1; $l--) : ?>
+      <tr>
+        <?php for ($a = 1; $a <= $l; $a++) : ?>
+          <td class="design"> <?php echo "$a"; ?></td>
+        <?php endfor ?>
+      </tr>
+    <?php endfor ?>
+  </table>
+</body>
+
+</html>
