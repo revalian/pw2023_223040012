@@ -1,5 +1,6 @@
 <?php
 include 'config.php';
+session_start();
 
 if (isset($_POST['submit'])) {
 
@@ -9,6 +10,7 @@ if (isset($_POST['submit'])) {
     $select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE email = '$email' AND password = '$pass'") or die('query failed');
 
     if (mysqli_num_rows($select_users) > 0) {
+
         $row = mysqli_fetch_assoc($select_users);
 
         if ($row['user_type'] == 'admin') {
@@ -25,7 +27,7 @@ if (isset($_POST['submit'])) {
             header('location:home.php');
         }
     } else {
-        $message[] = 'Incorrect email or password';
+        $message[] = 'incorrect email or password!';
     }
 }
 
